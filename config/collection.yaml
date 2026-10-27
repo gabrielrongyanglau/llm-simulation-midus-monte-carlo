@@ -1,0 +1,35 @@
+run_name: monte_carlo_medium_v1
+model: gpt-5.6-luna
+reasoning_effort: medium
+methods:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+replications: 1000
+participants_per_replication: 100
+pilot_size: 50
+batch_size: 100
+max_attempts: 3
+request_timeout_seconds: 900
+max_output_tokens: 128000
+random_seed: 20260831
+variant: representative
+paths:
+  raw_output: outputs/monte_carlo_medium_v1/raw
+  dataset_output: outputs/monte_carlo_medium_v1/datasets
+  anchor_output: outputs/monte_carlo_medium_v1/anchors
+  pilot_audit_output: outputs/monte_carlo_medium_v1/pilot_audits
+  logs: outputs/monte_carlo_medium_v1/logs
+  pool_output: outputs/monte_carlo_medium_v1/pools
+  midus_data: data/MIDUS2_3_linked_cleaned.csv
+  study: config/study.yaml
+batch_requests: 64
+max_active_batches: 4
+poll_seconds: 60
+max_batch_input_bytes: 180000000
+max_queued_input_tokens: 20000000

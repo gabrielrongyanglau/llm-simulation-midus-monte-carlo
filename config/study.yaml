@@ -1,0 +1,910 @@
+version: MIDUS-survey-2026-10-10-v1
+id_column: M2ID
+family_column: M2FAMNUM
+psychological_predictors:
+- B1SORIEN
+- B1SPESSI
+- B1SMASTE
+- B1SCONST
+- B1SCTRL
+- B1SESTEE
+- B1SEXTRA
+- B1SOPEN
+- B1SCONS2
+- B1SAGREE
+- B1SNEURO
+- B1SACTIV
+- B1SPLAN
+- B1SREINT
+- B1SPRCOP
+- B1SDENIA
+- B1SDISEN
+- B1SFDCOP
+- B1SPOSAF
+- B1SNEGAF
+- B1PANXIE
+- B1SKINPO
+- B1SFDSPO
+- B1SSPEMP
+- B1SKINNE
+- B1SFDSNE
+- B1SSPCRI
+- B1SGENER
+- B1SSWBMS
+- B1SSWBSI
+- B1SSWBAO
+- B1SSWBSC
+- B1SSWBSA
+- B1SDAYDI
+- B1SNEGWF
+- B1SNEGFW
+- B1SPWBU2
+- B1SPWBS2
+demographic_covariates:
+- B1PRAGE_2019
+- B1PRSEX
+- B1PB1
+- B1PB19
+- B1PF7A
+- B1SN1A
+outcomes:
+  life_satisfaction_MIDUS2: B1SSATIS
+  life_satisfaction_MIDUS3: C1SSATIS
+outcome_alternatives:
+  global_item:
+    life_satisfaction_MIDUS2: B1SQ1
+    life_satisfaction_MIDUS3: C1SQ1
+  six_item:
+    life_satisfaction_MIDUS2: B1SSATIS2
+    life_satisfaction_MIDUS3: C1SSATIS2
+calibration_fraction: 0.2
+age_quota_bins:
+- - 28
+  - 39
+- - 40
+  - 49
+- - 50
+  - 59
+- - 60
+  - 69
+- - 70
+  - 84
+variables:
+  B1SOPTIM:
+    label: 'LOT: Optimism'
+    construct: Optimism
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '782'
+    minimum: 3
+    maximum: 15
+    scoring: Sum of three 1-5 items, already scored in the source; higher values indicate
+      more of the named construct.
+  B1SORIEN:
+    label: 'LOT Overall: Optimism + Pessimism'
+    construct: Optimism
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '783'
+    minimum: 6
+    maximum: 30
+    scoring: Six-item Life Orientation Test overall score; higher values indicate
+      greater optimism. Pessimism items contribute in the opposite direction from
+      the pessimism subscale. Use the existing score.
+  B1SPESSI:
+    label: 'LOT: Pessimism'
+    construct: Pessimism
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '782'
+    minimum: 3
+    maximum: 15
+    scoring: Sum of three 1-5 items, already scored in the source; higher values indicate
+      more of the named construct.
+  B1SMASTE:
+    label: Personal Mastery
+    construct: Perceived mastery
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '725'
+    minimum: 1
+    maximum: 7
+    scoring: Existing four-item mean; higher values indicate greater personal efficacy
+      and mastery. Shares items with overall perceived control.
+  B1SCONST:
+    label: Perceived Constraints
+    construct: Perceived constraints
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '725'
+    minimum: 1
+    maximum: 7
+    scoring: Existing eight-item mean; higher values indicate greater perceived obstacles
+      and constraints. Shares items with overall perceived control.
+  B1SCTRL:
+    label: Sense of Control (Mastery + Constraints)
+    construct: Overall perceived control
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '726'
+    minimum: 1
+    maximum: 7
+    scoring: Existing twelve-item combined mean; higher values indicate greater perceived
+      control. It combines mastery and constraints with the source reverse coding
+      and available-item rules; these measures share items.
+  B1SESTEE:
+    label: Self-esteem
+    construct: Self-esteem
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '730'
+    minimum: 7
+    maximum: 49
+    scoring: Existing seven-item sum; higher values indicate greater self-esteem.
+  B1SEXTRA:
+    label: Extraversion Personality Trait
+    construct: Extraversion
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '753'
+    minimum: 1
+    maximum: 4
+    scoring: Existing adjective-item mean; higher values indicate more of the named
+      personality trait. Conscientiousness version 1 has four items; version 2 has
+      five.
+  B1SOPEN:
+    label: Openness Personality Trait
+    construct: Openness to experience
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '754'
+    minimum: 1
+    maximum: 4
+    scoring: Existing adjective-item mean; higher values indicate more of the named
+      personality trait. Conscientiousness version 1 has four items; version 2 has
+      five.
+  B1SCONS1:
+    label: Conscientiousness Personality Trait (Parallel M1 items)
+    construct: Conscientiousness
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '754'
+    minimum: 1
+    maximum: 4
+    scoring: Existing adjective-item mean; higher values indicate more of the named
+      personality trait. Conscientiousness version 1 has four items; version 2 has
+      five.
+  B1SCONS2:
+    label: Conscientiousness Personality Trait (M1 items + 1 additional)
+    construct: Conscientiousness
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '754'
+    minimum: 1
+    maximum: 4
+    scoring: Existing adjective-item mean; higher values indicate more of the named
+      personality trait. Conscientiousness version 1 has four items; version 2 has
+      five.
+  B1SAGREE:
+    label: Agreeableness Personality Trait
+    construct: Agreeableness
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '752'
+    minimum: 1
+    maximum: 4
+    scoring: Existing adjective-item mean; higher values indicate more of the named
+      personality trait. Conscientiousness version 1 has four items; version 2 has
+      five.
+  B1SNEURO:
+    label: Neuroticism Personality Trait
+    construct: Neuroticism
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '753'
+    minimum: 1
+    maximum: 4
+    scoring: Existing adjective-item mean; higher values indicate more of the named
+      personality trait. Conscientiousness version 1 has four items; version 2 has
+      five.
+  B1SACTIV:
+    label: Active Coping (Problem Focused Coping)
+    construct: Active coping
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '880'
+    minimum: 4
+    maximum: 16
+    scoring: Existing four-item coping sum; higher values indicate greater use of
+      the named coping strategy.
+  B1SPLAN:
+    label: Planning (Problem Focused Coping)
+    construct: Planning
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '880'
+    minimum: 4
+    maximum: 16
+    scoring: Existing four-item coping sum; higher values indicate greater use of
+      the named coping strategy.
+  B1SREINT:
+    label: Positive Reinterpretation (Problem Focused Coping)
+    construct: Positive reinterpretation and growth
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '880'
+    minimum: 4
+    maximum: 16
+    scoring: Existing four-item coping sum; higher values indicate greater use of
+      the named coping strategy.
+  B1SPRCOP:
+    label: Problem Focused Coping
+    construct: Problem-focused coping
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '883'
+    minimum: 12
+    maximum: 48
+    scoring: Existing twelve-item problem-focused coping sum. It combines active coping,
+      planning and positive reinterpretation. Preserve coherent relationships with
+      those subscales; they share items.
+  B1SDENIA:
+    label: Denial (Emotion Focused Coping)
+    construct: Denial
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '881'
+    minimum: 4
+    maximum: 16
+    scoring: Existing four-item coping sum; higher values indicate greater use of
+      the named coping strategy.
+  B1SDISEN:
+    label: Behavioral Disengagement (Emotion Focused Coping)
+    construct: Behavioural disengagement
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '882'
+    minimum: 4
+    maximum: 16
+    scoring: Existing four-item coping sum; higher values indicate greater use of
+      the named coping strategy.
+  B1SFDCOP:
+    label: Use Food to Cope
+    construct: Using food to cope
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '882'
+    minimum: 2
+    maximum: 8
+    scoring: Existing two-item sum; higher values indicate greater use of food to
+      cope.
+  B1SPOSAF:
+    label: Positive affect (Parallel M1 items)
+    construct: Positive affect
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '519'
+    minimum: 1
+    maximum: 5
+    scoring: Existing affect-item mean for feelings during the past 30 days; higher
+      values indicate more frequent positive or negative affect respectively. AF versions
+      use the MIDUS 1 parallel items; PA versions use the newer PANAS items.
+  B1SPOSPA:
+    label: Positive affect from PANAS (MIDUS2 new)
+    construct: Positive affect
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '520'
+    minimum: 1
+    maximum: 5
+    scoring: Existing affect-item mean for feelings during the past 30 days; higher
+      values indicate more frequent positive or negative affect respectively. AF versions
+      use the MIDUS 1 parallel items; PA versions use the newer PANAS items.
+  B1SNEGAF:
+    label: Negative affect (Parallel M1 items)
+    construct: Negative affect
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '511'
+    minimum: 1
+    maximum: 5
+    scoring: Existing affect-item mean for feelings during the past 30 days; higher
+      values indicate more frequent positive or negative affect respectively. AF versions
+      use the MIDUS 1 parallel items; PA versions use the newer PANAS items.
+  B1SNEGPA:
+    label: Negative affect from PANAS (MIDUS2 new)
+    construct: Negative affect
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '511'
+    minimum: 1
+    maximum: 5
+    scoring: Existing affect-item mean for feelings during the past 30 days; higher
+      values indicate more frequent positive or negative affect respectively. AF versions
+      use the MIDUS 1 parallel items; PA versions use the newer PANAS items.
+  B1PANXIE:
+    label: Anxiety Disorder (continuous)
+    construct: Anxiety symptoms
+    missing_codes: []
+    nullable: true
+    kind: integer
+    source_codebook_page: '163'
+    minimum: 0
+    maximum: 10
+    scoring: Existing count of most-days responses to ten anxiety symptoms over the
+      past 12 months, with the source screening procedure. Higher values indicate
+      greater anxiety symptom count. A value of zero is valid; this is not a binary
+      diagnosis.
+  B1SKINPO:
+    label: Support from Family
+    construct: Family support
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1081'
+    minimum: 1
+    maximum: 4
+    scoring: Existing relationship-item mean; higher values indicate greater support
+      (PO/EMP) or greater strain (NE/CRI). Spouse/partner measures may be not applicable
+      and then must be null.
+  B1SFDSPO:
+    label: Support from Friends
+    construct: Friend support
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1087'
+    minimum: 1
+    maximum: 4
+    scoring: Existing relationship-item mean; higher values indicate greater support
+      (PO/EMP) or greater strain (NE/CRI). Spouse/partner measures may be not applicable
+      and then must be null.
+  B1SSPEMP:
+    label: Support from Spouse/Partner
+    construct: Spouse/partner support
+    missing_codes:
+    - -1.0
+    - 8.0
+    - 9.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1139'
+    minimum: 1
+    maximum: 4
+    scoring: Existing relationship-item mean; higher values indicate greater support
+      (PO/EMP) or greater strain (NE/CRI). Spouse/partner measures may be not applicable
+      and then must be null.
+  B1SKINNE:
+    label: Strain from Family
+    construct: Family strain
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1082'
+    minimum: 1
+    maximum: 4
+    scoring: Existing relationship-item mean; higher values indicate greater support
+      (PO/EMP) or greater strain (NE/CRI). Spouse/partner measures may be not applicable
+      and then must be null.
+  B1SFDSNE:
+    label: Strain from Friends
+    construct: Friend strain
+    missing_codes:
+    - -1.0
+    - 8.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1088'
+    minimum: 1
+    maximum: 4
+    scoring: Existing relationship-item mean; higher values indicate greater support
+      (PO/EMP) or greater strain (NE/CRI). Spouse/partner measures may be not applicable
+      and then must be null.
+  B1SSPCRI:
+    label: Strain from Spouse/Partner
+    construct: Spouse/partner strain
+    missing_codes:
+    - -1.0
+    - 8.0
+    - 9.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1139'
+    minimum: 1
+    maximum: 4
+    scoring: Existing relationship-item mean; higher values indicate greater support
+      (PO/EMP) or greater strain (NE/CRI). Spouse/partner measures may be not applicable
+      and then must be null.
+  B1SGENER:
+    label: Loyola Generativity Scale
+    construct: Generativity
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1022'
+    minimum: 6
+    maximum: 24
+    scoring: Existing six-item generativity sum; higher values indicate greater generativity.
+  B1SSWBMS:
+    label: Meaningfulness of Society (Social Well-Being)
+    construct: Social well-being
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1059'
+    minimum: 2
+    maximum: 14
+    scoring: Existing two-item social coherence sum; higher values indicate greater
+      meaningfulness of society.
+  B1SSWBSI:
+    label: Social Integration (Social Well-Being)
+    construct: Social well-being
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1059'
+    minimum: 3
+    maximum: 21
+    scoring: Existing three-item sum; higher values indicate greater social integration,
+      acceptance, contribution or actualisation respectively. No overall social well-being
+      composite is calculated.
+  B1SSWBAO:
+    label: Acceptance of Others (Social Well-Being)
+    construct: Social well-being
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1060'
+    minimum: 3
+    maximum: 21
+    scoring: Existing three-item sum; higher values indicate greater social integration,
+      acceptance, contribution or actualisation respectively. No overall social well-being
+      composite is calculated.
+  B1SSWBSC:
+    label: Social Contribution (Social Well-Being)
+    construct: Social well-being
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1060'
+    minimum: 3
+    maximum: 21
+    scoring: Existing three-item sum; higher values indicate greater social integration,
+      acceptance, contribution or actualisation respectively. No overall social well-being
+      composite is calculated.
+  B1SSWBSA:
+    label: Social Actualization (Social Well-Being)
+    construct: Social well-being
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1061'
+    minimum: 3
+    maximum: 21
+    scoring: Existing three-item sum; higher values indicate greater social integration,
+      acceptance, contribution or actualisation respectively. No overall social well-being
+      composite is calculated.
+  B1SDAYDI:
+    label: Daily Discrimination
+    construct: Perceived discrimination
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '1208'
+    minimum: 9
+    maximum: 36
+    scoring: Existing nine-item sum; higher values indicate more frequent daily discrimination
+      after source reverse coding.
+  B1SLFEDI:
+    label: Summary - Lifetime Discrimination
+    construct: Perceived discrimination
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: integer
+    source_codebook_page: '1203'
+    minimum: 0
+    maximum: 11
+    scoring: Existing count of lifetime discrimination domains experienced, based
+      on eleven items; higher values indicate more domains, not the sum of event frequencies.
+  B1SNEGWF:
+    label: Negative Work to Family Spillover
+    construct: Negative work-to-family spillover
+    missing_codes:
+    - -1.0
+    - 98.0
+    - 99.0
+    nullable: true
+    kind: number
+    source_codebook_page: '938'
+    minimum: 4
+    maximum: 20
+    scoring: Existing four-item sum; higher values indicate greater negative work-to-family
+      or family-to-work spillover. Not-applicable values must be null.
+  B1SNEGFW:
+    label: Negative Family to Work Spillover
+    construct: Negative family-to-work spillover
+    missing_codes:
+    - -1.0
+    - 98.0
+    - 99.0
+    nullable: true
+    kind: number
+    source_codebook_page: '939'
+    minimum: 4
+    maximum: 20
+    scoring: Existing four-item sum; higher values indicate greater negative work-to-family
+      or family-to-work spillover. Not-applicable values must be null.
+  B1SPWBU1:
+    label: Purpose in Life (Psychological Well-Being 3-item)
+    construct: Purpose in life
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '705'
+    minimum: 3
+    maximum: 21
+    scoring: Existing three-item psychological well-being sum; higher values indicate
+      greater purpose in life or self-acceptance respectively.
+  B1SPWBU2:
+    label: Purpose in Life (Psychological Well-Being 7-item)
+    construct: Purpose in life
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '708'
+    minimum: 7
+    maximum: 49
+    scoring: Existing seven-item psychological well-being sum; higher values indicate
+      greater purpose in life or self-acceptance respectively.
+  B1SPWBS1:
+    label: Self-Acceptance (Psychological Well-Being 3-item)
+    construct: Self-acceptance
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '706'
+    minimum: 3
+    maximum: 21
+    scoring: Existing three-item psychological well-being sum; higher values indicate
+      greater purpose in life or self-acceptance respectively.
+  B1SPWBS2:
+    label: Self-Acceptance (Psychological Well-Being 7-item)
+    construct: Self-acceptance
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: number
+    source_codebook_page: '708'
+    minimum: 7
+    maximum: 49
+    scoring: Existing seven-item psychological well-being sum; higher values indicate
+      greater purpose in life or self-acceptance respectively.
+  B1PRAGE_2019:
+    label: Respondent's calculated age at MIDUS 2 Project 1 phone interview, updated
+      as of 8-5-2019
+    construct: Age
+    missing_codes:
+    - 98.0
+    nullable: true
+    kind: integer
+    source_codebook_page: '4'
+    minimum: 28
+    maximum: 84
+    scoring: Age in completed years at MIDUS 2, using the corrected source age variable.
+      This is baseline age, not MIDUS 3 age.
+  B1PRSEX:
+    label: Respondent's sex
+    construct: Sex
+    missing_codes:
+    - 7.0
+    - 8.0
+    - 9.0
+    nullable: true
+    kind: category
+    source_codebook_page: '6'
+    categories:
+      1: MALE
+      2: FEMALE
+    scoring: Respondent's sex
+  B1PB1:
+    label: Highest level of education completed
+    construct: Education
+    missing_codes:
+    - 97.0
+    - 98.0
+    nullable: true
+    kind: category
+    source_codebook_page: '170'
+    categories:
+      1: NO SCHOOL/SOME GRADE SCHOOL (1-6)
+      2: EIGHTH GRADE/JUNIOR HIGH SCHOOL (7-8)
+      3: SOME HIGH SCHOOL (9-12 NO DIPLOMA/NO GED)
+      4: GED
+      5: GRADUATED FROM HIGH SCHOOL
+      6: 1 TO 2 YEARS OF COLLEGE, NO DEGREE YET
+      7: 3 OR MORE YEARS OF COLLEGE, NO DEGREE YET
+      8: GRAD. FROM 2-YEAR COLLEGE, VOCATIONAL SCHOOL, OR ASSOC. DEG.
+      9: GRADUATED FROM A 4- OR 5-YEAR COLLEGE, OR BACHELOR'S DEG.
+      10: SOME GRADUATE SCHOOL
+      11: MASTER'S DEGREE
+      12: PH.D., ED.D., MD, DDS, LLB, LLD, JD, OR OTHER PROFESS'NL DEG.
+    scoring: What is the highest grade of school or year of college you completed?
+  B1PB19:
+    label: Marital status currently
+    construct: Marital status
+    missing_codes:
+    - 7.0
+    - 8.0
+    nullable: true
+    kind: category
+    source_codebook_page: '208'
+    categories:
+      1: MARRIED
+      2: SEPARATED
+      3: DIVORCED
+      4: WIDOWED
+      5: NEVER MARRIED
+    scoring: Are you married, separated, divorced, widowed, or never married?
+  B1PF7A:
+    label: 'Racial origins #1'
+    construct: Race
+    missing_codes:
+    - 7.0
+    - 8.0
+    nullable: true
+    kind: category
+    source_codebook_page: '417'
+    categories:
+      1: WHITE
+      2: BLACK AND/OR AFRICAN AMERICAN
+      3: NATIVE AMERICAN OR ALASKA NATIVE ALEUTIAN ISLANDER/ESKIMO
+      4: ASIAN
+      5: NATIVE HAWAIIAN OR PACIFIC ISLANDER
+      6: OTHER (SPECIFY)
+    scoring: What are your main racial origins -- that is, what race or races are
+      your parents, grandparents, and other ancestors? FIRST RESPONSE.
+  B1SN1A:
+    label: Religious preference 1st choice
+    construct: Religious preference
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: true
+    kind: category
+    source_codebook_page: '1164'
+    categories:
+      1: NO RELIGIOUS PREFERENCE
+      2: AGNOSTIC
+      3: ATHEIST
+      4: PROTESTANT, INTERDENOMINATIONAL
+      5: PROTESTANT, NO DENOMINATION
+      6: APOSTOLIC
+      7: ASSEMBLY OF GOD
+      8: BAPTIST (ALL TYPES)
+      9: BORN-AGAIN CHRISTIAN
+      10: BRETHREN
+      11: DISCIPLES OF CHRIST
+      12: CHRISTIAN REFORMED
+      13: CHURCH OF GOD
+      14: CONGREGATIONAL
+      15: EPISCOPALIAN
+      16: EVANGELICAL
+      17: HOLINESS
+      18: JEHOVAH'S WITNESS
+      19: LUTHERAN
+      20: MENNONITE
+      21: METHODIST
+      22: MORMON, LATTER DAY ST
+      23: NAZARENE
+      24: PENTECOSTAL
+      25: PRESBYTERIAN
+      26: QUAKER
+      27: SALVATION ARMY
+      28: SANCTIFIED
+      29: SEVENTH DAY ADVENTIST
+      30: SPIRITUAL
+      31: UNITARIAN
+      32: UNITED CHURCH CHRIST
+      33: PROTESTANT, OTHER
+      34: CATHOLIC, ROMAN
+      35: CATHOLIC, UKRAINIAN
+      36: ORTHODOX
+      37: CATHOLIC, OTHER
+      38: JEWISH ORTHODOX
+      39: JEWISH CONSERVATIVE
+      40: JEWISH REFORM
+      41: JEWISH RECONST.
+      42: JEWISH OTHER
+      43: BUDDHIST
+      44: HINDU
+      45: MUSLIM
+      46: RASTAFARIAN
+      47: OTHER
+    scoring: What is your religious preference? - FIRST CHOICE.
+  B1SSATIS:
+    label: Life Satisfaction (5-item version)
+    construct: Life satisfaction composite
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: false
+    kind: number
+    source_codebook_page: '433'
+    minimum: 0
+    maximum: 10
+    scoring: Existing five-item domain life-satisfaction score, higher is better.
+      Domains cover life overall, work, health, spouse/partner and children; the two
+      relationship ratings first contribute as one domain. This is not a simple unweighted
+      mean of five ratings. Use the existing source score, including its original
+      available-item scoring; do not calculate a new composite.
+  C1SSATIS:
+    label: Life Satisfaction (5-item version)
+    construct: Life satisfaction composite
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: false
+    kind: number
+    source_codebook_page: 988, 1776
+    minimum: 0
+    maximum: 10
+    scoring: Existing five-item domain life-satisfaction score, higher is better.
+      Domains cover life overall, work, health, spouse/partner and children; the two
+      relationship ratings first contribute as one domain. This is not a simple unweighted
+      mean of five ratings. Use the existing source score, including its original
+      available-item scoring; do not calculate a new composite.
+  B1SSATIS2:
+    label: Life Satisfaction (6-item version)
+    construct: Life satisfaction composite
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: false
+    kind: number
+    source_codebook_page: '433'
+    minimum: 0
+    maximum: 10
+    scoring: Existing six-item life-satisfaction version, higher is better. Use the
+      source composite without recomputing it; this is an alternative to the five-item
+      score, not an additional predictor.
+  C1SSATIS2:
+    label: Life Satisfaction (6-item version)
+    construct: Life satisfaction composite
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: false
+    kind: number
+    source_codebook_page: 988, 1776
+    minimum: 0
+    maximum: 10
+    scoring: Existing six-item life-satisfaction version, higher is better. Use the
+      source composite without recomputing it; this is an alternative to the five-item
+      score, not an additional predictor.
+  B1SQ1:
+    label: Rate life overall currently
+    construct: Global life satisfaction
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: false
+    kind: integer
+    source_codebook_page: '1215'
+    minimum: 0
+    maximum: 10
+    scoring: Single current-life overall rating, 0 worst possible to 10 best possible;
+      an alternative outcome, distinct from the domain composite.
+  C1SQ1:
+    label: Rate life overall currently
+    construct: Global life satisfaction
+    missing_codes:
+    - -1.0
+    - 98.0
+    nullable: false
+    kind: integer
+    source_codebook_page: 1770, 2557
+    minimum: 0
+    maximum: 10
+    scoring: Single current-life overall rating, 0 worst possible to 10 best possible;
+      an alternative outcome, distinct from the domain composite.
